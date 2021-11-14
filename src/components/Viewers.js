@@ -1,83 +1,133 @@
-import React from 'react'
-import styled from 'styled-components'
-import ProductList from './ProductList'
+import React from "react";
+import styled from "styled-components";
+import ProductList from "./ProductList";
+//import ProductList from "./ProductList";
+export default function Viewers() {
 
-function Viewers() {
-    return (
-        <Container>
-            <Wrap>
-                <Text>ITEM ID 1</Text>
-                
-            </Wrap>
-            <Wrap>
-                <Text>ITEM ID 2</Text>
-                
-            </Wrap>
-            <Wrap>
-                <Text>ITEM ID 3</Text>
-                
-            </Wrap>
-            <Wrap>
-                <Text>ITEM ID 4</Text>
-                
-            </Wrap>
-            <Wrap>
-                <Text>ITEM ID 5</Text>
-            </Wrap>
-            <Wrap>
-                <Text>ITEM ID 6</Text>
-            </Wrap>
-            <Wrap>
-                <Text>ITEM ID 7</Text>
-            </Wrap>
-            <Wrap>
-                <Text>ITEM ID 8</Text>
-            </Wrap>
-            <Wrap>
-                <Text>ITEM ID 9</Text>
-            </Wrap>
-            <Wrap>
-                <Text>ITEM ID 10</Text>
-            </Wrap>
-            <ProductList></ProductList>
-        </Container>
-    )
+  return (
+    <Container>
+      <Wrap>
+        <input name="itemId" onblur="getValAmount()" placeholder="Amount" type="text"  id="Amount"/>
+        <input placeholder="Currency" onblur="getValTranslate()" type="text" id="Currency"/>
+        {/* <Text id="itemId">5093850</Text> */}
+      </Wrap>
+      <Wrap>
+      <input placeholder="Translated Currency" onblur="getValTranslated()" type="text" id="TCurrency" />
+      </Wrap>
+      <Wrapper>
+        <Text id="durumId">DURUM</Text>
+      </Wrapper>
+      <div>
+        <Button id="myBtn" onclick="myFunction()">GETİR</Button>
+      </div>
+
+      <ProductList></ProductList>
+      <table></table>
+    </Container>
+  );
 }
-
-export default Viewers
-
 const Container = styled.div`
-    margin-top: 30px;
-    display: grid;
-    padding: 30px 0px 26px;
-    grid-gap: 25px;
-    grid-template-columns: repeat(5,minmax(0,1fr));
-`
+  margin-top: 20px;
+  display: grid;
+  padding: 20px 0px 26px;
+  grid-gap: 25px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  text-align: center;
+`;
 
 const Wrap = styled.div`
-    border-radius: 10px;
+  img {
+    width: 100%;
+    //height: 100%;
+    object-fit: cover;
+  }
+  input {
+    font-size: 35px;
+    border-radius: 15px;
     cursor: pointer;
-    border: 3px solid rgba(249,249,249,0.1);
+    border: 3px solid rgba(249, 249, 249, 0.1);
     box-shadow: rgb(0 0 0 /69%) 0px 26px 30px -10px,
     rgb(0 0 0 / 73%) 0px 16px 10px -10px;
-    transition: all 250ms cubic-bezier(0.25,0.46,0.45,0.94) 0s;
-
-    img {
-        width: 100%;
-        //height: 100%;
-        object-fit: cover;
-    }
-
+    transition: all 250ms cubic-bezier(0.25, 0.46, 0.45, 0.94) 0s;
+    text-align: center;
+    margin-top: 1px;
+    color: turquoise;
+    background: url("images/home-background.png") center center / cover;
+    padding: 40px;
+    padding-left: 0px;
+    padding-right: 0px;
     
     &:hover {
-        box-shadow: rgba(0 0 0 / 80%) 0px 40px 58px -16px,
-        rgba(0 0 0 / 72%) 0px 30px 22px -10px;
-        transform: scale(1.05);
-        border-color: rgba(249,249,249,0.8);
-    }
-`
+        box-shadow: rgba(60 210 300 / 100%) 0px 40px 58px -16px,
+          rgba(0 0 0 / 72%) 0px 30px 22px -10px;
+        transform: scale(1.02);
+        border-color: rgba(2, 249, 249, 0.8);
+      }
+  }
+`;
+
+const Wrapper = styled.div`
+  border-radius: 20px;
+  cursor: pointer;
+  border: 3px solid rgba(249, 249, 249, 0.1);
+  box-shadow: rgb(0 0 0 /69%) 0px 26px 30px -10px,
+    rgb(0 0 0 / 73%) 0px 16px 10px -10px;
+  transition: all 250ms cubic-bezier(0.25, 0.46, 0.45, 0.94) 0s;
+  text-align: center;
+  img {
+    width: 100%;
+    //height: 100%;
+    object-fit: cover;
+  }
+  &:hover {
+    box-shadow: rgba(1 210 60 / 100%) 0px 40px 58px -16px,
+      rgba(0 0 0 / 72%) 0px 30px 22px -10px;
+    transform: scale(1.02);
+    border-color: rgba(1,210, 60, 0.8);
+  }
+`;
 const Text = styled.div`
-    color: white;
-    padding: 10px 15px 26px;
-    margin-top: 10px;
-`
+  font-size: 35px;
+  color: turquoise;
+  padding: 0px 65px 26px;
+  margin-top: 29px;
+  text-align: center;
+`;
+
+const Button = styled.button`
+  /* Adapt the colors based on primary prop */
+  background: "gray" : "black"};
+  color: "black" : "turquoise"};
+  border: 3px solid rgba(249,249,249,0.1);
+  font-size: 2.5em;
+  margin-left: 3em;
+  margin-top: 0.65em;
+  padding: 0.250em 2em;
+  border-radius: 15px;
+  text-align: center;
+  &:hover {
+    box-shadow: rgba(60 210 300 / 100%) 0px 40px 58px -16px,
+    rgba(0 0 0 / 100%) 0px 5px 22px -10px;
+    transform: scale(1.05);
+    border-color: rgba(2,249,249,0.8);
+    transition: all 250ms cubic-bezier(0.25,0.46,0.45,0.94) 0s;
+    }
+  text: Başarılı
+  {
+    box-shadow: rgba(60 210 300 / 100%) 0px 40px 58px -16px,
+    rgba(0 0 0 / 100%) 0px 5px 22px -10px;
+    transform: scale(1.05);
+    border-color: rgba(2,249,249,0.8);
+    transition: all 250ms cubic-bezier(0.25,0.46,0.45,0.94) 0s;
+  }  
+`;
+
+// const Input = styled.input`
+// border-radius: 15px;
+// cursor: pointer;
+// border: 3px solid rgba(249, 249, 249, 0.1);
+// box-shadow: rgb(0 0 0 /69%) 0px 26px 30px -10px,
+//   rgb(0 0 0 / 73%) 0px 16px 10px -10px;
+// transition: all 250ms cubic-bezier(0.25, 0.46, 0.45, 0.94) 0s;
+// text-align: center;
+// `;
