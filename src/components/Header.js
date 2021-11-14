@@ -3,24 +3,26 @@ import styled from 'styled-components'
 
 function Header() {
     return (
+        
         <Nav>
             <Logo src="https://www.yariskabin.com.tr/assets/img/logo.png"/>
             <NavMenu>
-                <a>
+                <p>
                     <img src="/images/home-icon.svg" alt=""/>
                     <span>ANA SAYFA</span>
-                </a>
+                </p>
 
-                <a>
+                <p>
                     <img src="/images/search-icon.svg" alt=""/>
                     <span>ARAMA</span>
-                </a>
+                </p>
 
-                <a>
+                <p>
                     <img src="/images/watchlist-icon.svg" alt=""/>
                     <span>İSTEK</span>
-                </a>
+                </p>
             </NavMenu>
+            <h3>BAKIM-ONARIM DEPARTMANI</h3>
             <UserImg src="https://www.w3schools.com/howto/img_avatar.png"/>
         </Nav>
     )
@@ -35,6 +37,12 @@ const Nav = styled.nav`
     align-items: center;
     padding: 0 36px;
     overflow-x: hidden;
+    h3 {
+        display: flex;
+        align-items: center;
+        padding: 0 12px;
+        cursor: pointer;
+    }
 `
 const Logo = styled.img`
     width: 80px;
@@ -45,22 +53,18 @@ const NavMenu = styled.div`
     flex: 1;
     margin-left: 25px;
     align-items: center;
-
-    a {
+    p {
         display: flex;
         align-items: center;
         padding: 0 12px;
         cursor: pointer;
-
         img {
             height: 20px;
         }
-
         span {
             font-size: 13px;
             letter-spacing: 1.42px;
             position: relative;
-
             &:after {
                 content: "";
                 height: 2px;

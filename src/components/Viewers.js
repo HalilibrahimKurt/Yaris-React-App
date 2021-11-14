@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import ProductList from './ProductList'
 
 function Viewers() {
     return (
@@ -38,6 +39,7 @@ function Viewers() {
             <Wrap>
                 <Text>ITEM ID 10</Text>
             </Wrap>
+            <ProductList></ProductList>
         </Container>
     )
 }
